@@ -35,15 +35,15 @@ public class Main {
     	try {
     		Connection connection = getConnection();
     		
-    		deleteProductFromProdStock(connection, "p1");
+    		//deleteProductFromProdStock(connection, "p1"); 		
     		
-          	deleteDepoFromDepotStock(connection, "d1");
+    		//deleteDepoFromDepotStock(connection, "d100");
           	
-          	updateProductID(connection, "p1", "pp1");
+          	//updateProductID(connection, "p1", "pp1");
           	
-          	updateDepotID(connection, "d1", "dd1");
+          	//updateDepotID(connection, "d1", "dd1");
           	
-          	addProduct(connection, "p100", "cd", 5, "d2", 50);
+          	//addProduct(connection, "p100", "cd", 5, "d2", 50);
           	
           	addDepot(connection, "d100", "Chicago", 100, "p1", 100);
           	
@@ -68,7 +68,7 @@ public class Main {
             deleteFromProduct.close();
         } catch (SQLException e) {
             con.rollback();
-            throw e;
+            System.out.println(e.getMessage());
         } finally {
             con.setAutoCommit(true);
         }
@@ -89,7 +89,7 @@ public class Main {
             deleteFromDepot.close();
         } catch (SQLException e) {
             con.rollback();
-            throw e;
+            System.out.println(e.getMessage());
         } finally {
             con.setAutoCommit(true);
            
@@ -114,7 +114,7 @@ public class Main {
             updateProdIDInStock.close();
         } catch (SQLException e) {
             con.rollback();
-            throw e;
+            System.out.println(e.getMessage());
         } finally {
             con.setAutoCommit(true);
            
@@ -137,7 +137,7 @@ public class Main {
             updateDepIDInStock.close();
         } catch (SQLException e) {
             con.rollback();
-            throw e;
+            System.out.println(e.getMessage());
         } finally {
             con.setAutoCommit(true);
            
@@ -162,7 +162,7 @@ public class Main {
             addProdInStock.close();
         } catch (SQLException e) {
             con.rollback();
-            throw e;
+            System.out.println(e.getMessage());
         } finally {
             con.setAutoCommit(true);
            
@@ -187,7 +187,7 @@ public class Main {
             addDepoInStock.close();
         } catch (SQLException e) {
             con.rollback();
-            throw e;
+            System.out.println(e.getMessage());
         } finally {
             con.setAutoCommit(true);
            
