@@ -37,15 +37,15 @@ public class Main {
     		
     		//deleteProductFromProdStock(connection, "p1"); 		
     		
-    		//deleteDepoFromDepotStock(connection, "d100");
+    		//deleteDepoFromDepotStock(connection, "d1");
           	
-          	//updateProductID(connection, "p1", "pp1");
+          	updateProductID(connection, "pp2", "p2");
           	
           	//updateDepotID(connection, "d1", "dd1");
           	
           	//addProduct(connection, "p100", "cd", 5, "d2", 50);
           	
-          	addDepot(connection, "d100", "Chicago", 100, "p1", 100);
+          	//addDepot(connection, "d100", "Chicago", 100, "p1", 100);
           	
             connection.close();
           } catch (SQLException e) {
@@ -102,10 +102,10 @@ public class Main {
             con.setAutoCommit(false);
             PreparedStatement updateProdIDInProduct = con.prepareStatement("Update Product set prodid=? where prodid=?");
             PreparedStatement updateProdIDInStock = con.prepareStatement("Update Stock set prodid=? where prodid=?");
-            updateProdIDInProduct.setString(1, prodid);
-            updateProdIDInProduct.setString(2, newProdid);
-            updateProdIDInStock.setString(1, prodid);
-            updateProdIDInStock.setString(2, newProdid);
+            updateProdIDInProduct.setString(1, newProdid);
+            updateProdIDInProduct.setString(2, prodid);
+            updateProdIDInStock.setString(1, newProdid);
+            updateProdIDInStock.setString(2, prodid);
             updateProdIDInProduct.executeUpdate();
             updateProdIDInStock.executeUpdate();
             con.commit();
@@ -125,10 +125,10 @@ public class Main {
             con.setAutoCommit(false);
             PreparedStatement updateDepIDInDepot = con.prepareStatement("Update Depot set depid=? where depid=?");
             PreparedStatement updateDepIDInStock = con.prepareStatement("Update Stock set depid=? where depid=?");
-            updateDepIDInDepot.setString(1, depid);
-            updateDepIDInDepot.setString(2, newDepid);
-            updateDepIDInStock.setString(1, depid);
-            updateDepIDInStock.setString(2, newDepid);
+            updateDepIDInDepot.setString(1, newDepid);
+            updateDepIDInDepot.setString(2, depid);
+            updateDepIDInStock.setString(1, newDepid);
+            updateDepIDInStock.setString(2, depid);
             updateDepIDInDepot.executeUpdate();
             updateDepIDInStock.executeUpdate();
             con.commit();
@@ -190,7 +190,6 @@ public class Main {
             System.out.println(e.getMessage());
         } finally {
             con.setAutoCommit(true);
-           
         }
     }
         
